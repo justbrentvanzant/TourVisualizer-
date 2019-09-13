@@ -9,31 +9,49 @@ html, body, #mapid {
      width: 100%;
 }
 .search {
+  top-margin: 0;
   width: 100%;
   position: relative;
   display: flex;
 }
+.displayBand {
+  width: 100%;
+  position: relative;
+  display: flex;
+  bottom-margin: 0;
+}
+.displayText {
+  width: 100%;
+  border: 3px solid #76B8E8;
+  border-right: none;
+  padding: 5px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #fff;
+  font-size: 0.8em;
+  background: #76B8E8;
+  border-radius: 5px 5px 5px 5px;
+}
 
 .searchTerm {
   width: 100%;
-  border: 3px solid #d34848;
+  border: 3px solid #76B8E8;
   border-right: none;
   padding: 5px;
   height: 20px;
-  border-radius: 5px 0 0 5px;
   outline: none;
-  color: #d34848;
+  color: #76B8E8;
 }
 
 .searchTerm:focus{
-  color: #d34848;
+  color: #76B8E8;
 }
 
 .searchButton {
   width: 40px;
   height: 36px;
-  border: 1px solid #d34848;
-  background: #d34848;
+  border: 1px solid #76B8E8;
+  background: #76B8E8;
   text-align: center;
   color: #fff;
   border-radius: 0 5px 5px 0;
@@ -45,7 +63,7 @@ html, body, #mapid {
 .wrap{
 
   position: absolute;
-  top: 10%;
+  top: 6%;
   left: 50%;
   width: 30%;
   transform: translate(-50%, -50%);

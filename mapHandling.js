@@ -14,15 +14,18 @@ let toursGroup;
 let toursArray =[];
 
 
+
 let updateMap = function(latArray, lonArray, titles, dates) {
+	toursArray =[];
 	let numEntries = latArray.length;
 	for (let i = 0; i < numEntries; i++){
-		let newMarker = L.marker([latArray[i], lonArray[i]]).bindPopup(titles[i]+" @ "+dates[i]);
+		let newMarker = L.marker([latArray[i], lonArray[i]]).bindPopup("<b>"+titles[i]+"</b>"+" on "+dates[i].substring(0, 10));
 		toursArray.push(newMarker); 
 	}
 	toursGroup = L.layerGroup(toursArray);
 	toursGroup.addTo(mymap);
 	hasMap = true;
+	updateStatus();
 }
 
 let clearMap = function() {
