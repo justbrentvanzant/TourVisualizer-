@@ -1,6 +1,6 @@
 //app.js
 
-let defaultSearch = "Panic At the DiSCo";
+let defaultSearch = "Twenty One Pilots";
 
 let getTourInfo = function(userInputString) {
 	clearMap();
