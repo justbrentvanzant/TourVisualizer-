@@ -120,19 +120,22 @@ var updateStatus = function(){
 	bandName = currentArtistSearchTerm;
 	amountResults = toursArray.length;
 	if (checkTop(bandName)!=-1){
-		bandSlot.innerHTML = bandName;
+		var newString = bandName+" ( Weekly Ranking: "+checkTop(bandName)+")";
+		bandSlot.innerHTML = newString;
 	}
 	else {
-		var newString = bandName+"( Weekly Ranking: "+checkTop(bandName)+")";
 		bandSlot.innerHTML = bandName;
 	}
 	
 	resultsSlot.innerHTML = amountResults;
+	var listString = filterForQuery(currentArtistSearchTerm);
+	var urlString = "'https://www.setlist.fm/search?query="+listString+"'";
+	setListSpot.innerHTML = "<a href="+urlString+">Most Recent Setlist</a>"
 }
 
 var checkTop = function(inputString){
 	for (var i = 0; i < artistArray.length; i++) {
-		if (artistArray[i] == inputString) {
+		if (cleanInput(artistArray[i]) === inputString) {
 			return i+1;
 		}
 	}
@@ -155,6 +158,8 @@ var callNumber = document.getElementById("callNumber");
 
 var bandSlot = document.getElementById("bandName");  
 var resultsSlot = document.getElementById("resultsNumber");  
+var setListSpot = document.getElementById("setlist");  
+
 
 callNumber.onclick = function(){
 	currentArtist = number.value;

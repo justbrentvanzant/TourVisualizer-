@@ -19,6 +19,11 @@ var setCurrentArtistSearchTern = function(inputString){
 var getCurrentArtist = function(){
 	return currentArtistSearchTerm
 }
+var filterForQuery = function(inputString){
+	var resultString = "";
+	resultString = inputString.replace("-", "+");
+	return resultString;
+}
 
 var cleanInput = function(inputString){
 	var cleanedStrings = inputString.toLowerCase().split(" ");
