@@ -9,20 +9,11 @@ webpage = urlopen(req).read()
 soupPage = soup(webpage, "html.parser")
 containers = soupPage.findAll("div",{"class":"chart-list-item"});
 
-exportFilename = "top100ArtistsWeekly.csv"
+exportFilename = "top100ArtistsWeekly.txt"
 f = open(exportFilename, "w")
-headers = "Name\n"
-f.write(headers)
 count = 0;
 for x in range(0, 100):
 	title = containers[x]['data-title']
-	f.write(title+",")
+	f.write("artistArray"+"["+str(x)+"] = "+"'"+title+"'"+";");
 	title.replace(" ", "+");
-	req = Request(baseQueryString+title, headers={'User-Agent': 'Mozilla/5.0'})
-	webpage = urlopen(req).read()
-	soupPage = soup(webpage, "html.parser")
-	outlineLists = soupPage.findAll("ol",{"class":"list-inline"});
-	listContents = outlineLists.findAll("li")
-	for content in listContents:
-		f.write(content+"-")
 	f.write('\n');

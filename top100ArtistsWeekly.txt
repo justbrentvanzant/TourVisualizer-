@@ -1,11 +1,3 @@
-//app.js
-//var searchButton = document.getElementById(mainButton);
-//var searchText = document.getElementById(searchText);
-
-//data variables
-var bandName = "";
-var amountResults = 0;
-var artistArray = [];
 artistArray[0] = 'Post Malone';
 artistArray[1] = 'Taylor Swift';
 artistArray[2] = 'Billie Eilish';
@@ -106,61 +98,3 @@ artistArray[96] = 'Nicki Minaj';
 artistArray[97] = 'Ella Mai';
 artistArray[98] = 'Ava Max';
 artistArray[99] = 'Adele';
-
-var defaultSearch = "Twenty One Pilots";
-
-var getTourInfo = function(userInputString) {
-	clearMap();
-	setCurrentArtist(userInputString);
-	manageRequest(updateMap);
-}
-
-getTourInfo(defaultSearch);
-var updateStatus = function(){
-	bandName = currentArtistSearchTerm;
-	amountResults = toursArray.length;
-	if (checkTop(bandName)!=-1){
-		bandSlot.innerHTML = bandName;
-	}
-	else {
-		var newString = bandName+"( Weekly Ranking: "+checkTop(bandName)+")";
-		bandSlot.innerHTML = bandName;
-	}
-	
-	resultsSlot.innerHTML = amountResults;
-}
-
-var checkTop = function(inputString){
-	for (var i = 0; i < artistArray.length; i++) {
-		if (artistArray[i] == inputString) {
-			return i+1;
-		}
-	}
-	return -1;
-}
-/*
-searchButton.onclick = function(){
-	console.log(searchText.value);
-	if (searchText.value = ""){
-		getTourInfo(defaultSearch);
-	}
-	else {
-		getTourInfo(searchText.value);
-	}
-
-}
-*/
-var number = document.getElementById("number");  
-var callNumber = document.getElementById("callNumber");  
-
-var bandSlot = document.getElementById("bandName");  
-var resultsSlot = document.getElementById("resultsNumber");  
-
-callNumber.onclick = function(){
-	currentArtist = number.value;
-	var val = number.value;
-	if (val != "") {
-		getTourInfo(val);
-	}
-	number.value = "";
-}
